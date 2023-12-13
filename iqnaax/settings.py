@@ -26,7 +26,7 @@ environ.Env.read_env()
 SECRET_KEY = 'django-insecure-6pg8kfa926a#-#bz(qy($vz@!&xx8ahj%3=5w@6l+#wsyeqzgn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
