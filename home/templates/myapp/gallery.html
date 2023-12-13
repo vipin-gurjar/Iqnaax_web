@@ -1,0 +1,85 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+{% block title %}Gallery{% endblock title %}
+
+{% block content %}
+<div class="edu-breadcrumb-area about-us-images1">
+      <div class="container">
+        <div class="breadcrumb-inner">
+          <div class="page-title">
+            <h1 class="title">Gallery</h1>
+
+          </div>
+          <ul class="edu-breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="separator"><i class="icon-angle-right"></i></li>
+            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+            <li class="separator"><i class="icon-angle-right"></i></li>
+            <li class="breadcrumb-item active" aria-current="page">Gallery </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+<section class=" edu-section-gap pt-0 pb-0">
+      <div class="justify-content-center row">
+        <div class="col-lg-10">
+          <div class="edu-gallery-area edu-section-gap">
+            <div class="container">
+
+              <div class="isotope-list gallery-grid-wrap">
+                <div id="animated-thumbnials">
+
+                  {% for img in images %}
+                  <a href="{{ img.images.url }}" class="edu-popup-image edu-gallery-grid p-gallery-grid-wrap
+                  isotope-item education">
+                    <div class="thumbnail"> <img src="{{ img.images.url }}" alt="Gallery
+                  Image" title="abc"> </div>
+                    <div class="zoom-icon">
+                      <i class="bi bi-zoom-in"></i>
+                    </div>
+                  </a>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!--=====================================-->
+  <!--=        CTA  Area Start            =-->
+  <!--=====================================-->
+  <!-- Start Ad Banner Area  -->
+  <div class="edu-cta-banner-area home-one-cta-wrapper bg-image">
+    <div class="container">
+      <div class="edu-cta-banner">
+        <div class="row justify-content-center">
+          <div class="col-lg-7">
+            <div class="section-title section-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+              <h2 class="title">Get Your Quality Skills <span class="color-secondary">Robotics </span>Products</h2>
+              <a href="{% url 'contact' %}" class="edu-btn">Contact Us<i class="bi bi-arrow-right Right-icon"></i></a>
+            </div>
+          </div>
+        </div>
+        <ul class="shape-group">
+          <li class="shape-01 scene">
+            <img data-depth="2.5" src="{% static 'images/shape-10.png' %}" alt="shape">
+          </li>
+          <li class="shape-02 scene">
+            <img data-depth="-2.5" src="{% static 'images/shape-09.png' %}" alt="shape">
+          </li>
+          <li class="shape-03 scene">
+            <img data-depth="-2" src="{% static 'images/shape-08.png' %}" alt="shape">
+          </li>
+          <li class="shape-04 scene">
+            <img data-depth="2" src="{% static 'images/shape-13.png' %}" alt="shape">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </section>
+
+{% endblock %}
+ 

@@ -1,0 +1,88 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+{% block title %}Shop{% endblock title %}
+{% block content %}
+<div class="edu-breadcrumb-area about-us-images12">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <div class="page-title">
+        <h1 class="title">Shop With Us</h1>
+
+          </div>
+          <ul class="edu-breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="separator"><i class="icon-angle-right"></i></li>
+            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+            <li class="separator"><i class="icon-angle-right"></i></li>
+            <li class="breadcrumb-item active" aria-current="page">Shop </li>
+            </ul>
+            </div>
+            </div>
+        </div>
+
+        <section>
+            <div class="edu-course-area course-area-1 gap-tb-text">
+                <div class="container">
+                    <div class="justify-content-center row">
+                        <div class="col-lg-12">
+
+                            <div class="justify-content-center row ">
+
+                                                  <div class="col-md-6 col-lg-4" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800">
+                                    <div class="edu-course course-style-3 course-box-shadow">
+                                        <div class="inner">
+                                            <div class="thumbnail">
+                                                <a href="{% url 'steam' %}"> 
+                                                    <img src="{% static 'images/64f46a170af497431_M6.jpg' %}" alt="Course Meta">
+                                                </a>
+                                                <div class="time-top">
+                                                    <span class="duration">STEAM Products</span>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+
+                                                <p>
+                                                    <h5>Explore Science, Technolology, Engineeering, Arts &amp; Mathamatics</h5></p>
+                                                <div class="course-rating">
+
+                                                </div>
+                                                <div class="read-more-btn">
+                                                   <a class="edu-btn btn-small" href="{% url 'steam' %}">Explore More<i class="bi bi-arrow-right Right-icon"></i></class=></a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800">
+                                    <div class="edu-course course-style-3 course-box-shadow">
+                                        <div class="inner">
+                                            <div class="thumbnail">
+                                                <a href="{% url 'lab' %}">
+                                                    <img src="{% static 'images/64f46bc9189797072_M1.jpg' %}" alt="Course Meta">
+                                                </a> 
+                                                <div class="time-top">
+                                                    <span class="duration">Lab Setup</span>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+
+                                            
+                                                <p>Lab designed for preschools and kindergarten using humanoid robots and skillfully curated content to encourage children learn new skills and enjoy education</p>
+                                                <div class="course-rating">
+
+                                                </div>
+                                                <div class="read-more-btn">
+                                               <a class="edu-btn btn-small " href="{% url 'lab' %}">Explore More<i class="bi bi-arrow-right Right-icon"></i></a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </section>
+
+{% endblock %}

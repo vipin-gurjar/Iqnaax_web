@@ -1,0 +1,108 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+{% block title %}Blog Robotics{% endblock title %}
+{% block content %}
+
+<div class="edu-breadcrumb-area about-us-images10">
+    <div class="container">
+      <div class="breadcrumb-inner">
+        <div class="page-title">
+          <h1 class="title">Blog Detail</h1>
+
+        </div>
+        <ul class="edu-breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+         
+          <li class="separator"><i class="icon-angle-right"></i></li>
+          <li class="breadcrumb-item active" aria-current="page">Blog Detail</li>
+        </ul>
+      </div>
+    </div>
+</div>
+  <div class="blog-details-area section-gap-equal">
+          <div class="container">
+              <div class="row row--30">
+                  <div class="col-lg-8">
+                      <div class="blog-details-content">
+                          <div class="entry-content">
+                              <h3 class="title">{{ blog1_details_conent.title }}</h3>
+                              <ul class="blog-meta">
+                                  <li><i class="bi bi-calendar-check"></i>{{ blog1_details_conent.date }}</li>
+                        
+                              </ul>
+                              <div class="thumbnail">
+                                  <img src="{{ blog1_details_conent.blog_Detail_Img.url }}" alt="Blog Image">
+                              </div>
+                          </div>
+                        <div><h1>{{ blog1_details_conent.heading }}</h1>
+
+{% for blog1 in blog1_details_descs %}
+
+<h2><strong>{{ blog1.title }}</strong></h2>
+
+<p>{{ blog1.desc }}</p>
+
+{% endfor %}
+
+<h2><strong>Social Media Links:</strong></h2>
+
+<p><strong>- Facebook: </strong>www.facebook.com/iqnaax</p>
+
+<p><strong>- Twitter:</strong> www.twitter.com/iqnaax</p>
+
+<p><strong>- Instagram:</strong> www.instagram.com/iqnaax</p>
+
+<p><strong>- LinkedIn:</strong> www.linkedin.com/company/iqnaax</p>
+
+<p><strong>Contact Details:</strong></p>
+
+<p>For further inquiries or to discuss specific educational requirements, you can reach out to IQNAAX through the following contact details:</p>
+
+<p>- Phone: +919826299953</p>
+
+<p>- Email: info@iqnaax.com</p>
+</div>
+        </div>
+     </div>
+                  <div class="col-lg-4">
+                      <div class="edu-blog-sidebar">
+                     
+<div class="edu-blog-widget widget-latest-post">
+<div class="inner">
+<h4 class="widget-title">Latest Post</h4>
+<div class="content latest-post-list">
+
+{% for latest_post in latest_posts %}
+
+<div class="latest-post">
+<div class="thumbnail">
+<a href="#">
+<img src="{{ latest_post.latest_img.url }}" alt="Blog Images">
+</a>
+</div>
+<div class="post-content">
+<h6 class="title"><a href="{% url 'blog-detail' latest_post.id %}">
+{{ latest_post.title }}</a></h6>  
+<ul class="blog-meta">
+<li><i class="bi bi-calendar-check"></i>{{ latest_post.date }}</li>
+</ul>
+</div>
+</div>
+
+{% endfor %}
+
+
+ </div>
+                              </div>
+                          </div>
+                      
+      
+               
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>  
+
+
+      {% endblock %}

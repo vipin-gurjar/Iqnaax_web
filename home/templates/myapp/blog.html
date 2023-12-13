@@ -1,0 +1,66 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+{% block title %}Blog Robotics{% endblock title %}
+{% block content %}
+
+<div class="edu-breadcrumb-area about-us-images10">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <div class="page-title">
+        <h1 class="title">Blog </h1>
+
+      </div>
+      <ul class="edu-breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+       
+        <li class="separator"><i class="icon-angle-right"></i></li>
+        <li class="breadcrumb-item active" aria-current="page">Blog</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+</div>
+
+<section class="section-gap-equal">
+<div class="container">
+<div class="row g-5" id="masonry-gallery" style="position: relative; height: 1712.59px;">
+
+
+<!-- Start Blog Grid  -->
+{% for blog in blogs %}
+<div class="col-lg-4 col-md-6 col-12 masonry-item sal-animate" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800" style="position: absolute; left: 0px; top: 0px;">
+<div class="edu-blog blog-style-5">
+<div class="inner">
+<div class="thumbnail">
+<a href="{% url 'blog-detail' blog.id %}">
+<img src="{{ blog.blogImg.url }}" alt="Blog Images">
+</a>
+</div>
+<div class="content position-top">
+<div class="read-more-btn">
+<a  class="btn-icon-round" href="{% url 'blog-detail' blog.id %}">  
+<i class="bi bi-arrow-right"></i></a>
+</div>
+<h5 class="title">
+<a href="{% url 'blog-detail' blog.id %}">{{ blog.title }}</a></h5>
+<ul class="blog-meta">
+<li><i class="bi bi-calendar-check"></i>{{ blog.date }}</li>
+</ul>
+<p><p>{{ blog.desc }}</p>
+</p>
+</div>
+</div>
+</div>
+</div>
+{% endfor %}
+
+
+    </div>
+  </div>
+    </section>
+
+{% endblock %}
+
+

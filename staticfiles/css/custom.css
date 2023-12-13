@@ -1,0 +1,140 @@
+
+#ibtn{
+    outline: none;
+    border: 1px solid #e7e8e9 !important;
+    font-size: 14px !important;
+    box-shadow: none !important;
+}
+
+#ibtn:focus{
+    border-color: #76d1f8 !important;
+    box-shadow: 0 0 7px 0px #5f9dfa !important;
+}
+
+#id_username{
+    outline: none;
+    border: 1px solid #e7e8e9 !important;
+    font-size: 14px !important;
+    box-shadow: none !important;
+}
+
+#id_username:focus{
+    border-color: #76d1f8 !important;
+    box-shadow: 0 0 7px 0px #5f9dfa !important;
+}
+
+#id_email{
+    outline: none;
+    border: 1px solid #e7e8e9 !important;
+    font-size: 14px !important;
+    box-shadow: none !important;
+}
+
+#id_email:focus{
+    border-color: #76d1f8 !important;
+    box-shadow: 0 0 7px 0px #5f9dfa !important;
+}
+
+#id_password1{
+    outline: none;
+    border: 1px solid #e7e8e9 !important;
+    font-size: 14px !important;
+    box-shadow: none !important;
+}
+
+#id_password1:focus{
+    border-color: #76d1f8 !important;
+    box-shadow: 0 0 7px 0px #5f9dfa !important;
+}
+#id_password2{
+    outline: none;
+    border: 1px solid #e7e8e9 !important;
+    font-size: 14px !important;
+    box-shadow: none !important;
+}
+
+#id_password2:focus{
+    border-color: #76d1f8 !important;
+    box-shadow: 0 0 7px 0px #5f9dfa !important;
+}
+.onhover-div{ 
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    background-color: #fff;
+    z-index: 1001;
+    width: 365px !important;
+    border-radius: 10px;
+    padding: calc(14px + (30 - 14) * ((100vw - 320px) / (1920 - 320))) calc(11px + (20 - 11) * ((100vw - 320px) / (1920 - 320)));
+    -webkit-box-shadow: -1px 0 10px 0 rgb(34 34 34 / 7%), 5px 20px 40px 0 rgb(34 34 34 / 4%);
+    box-shadow: -1px 0 10px 0 rgb(34 34 34 / 7%), 5px 20px 40px 0 rgb(34 34 34 / 4%);
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+}
+
+
+#eduk-btn1{
+    text-align: center;
+    border-radius: 30px 5px;
+    display: inline-block;
+    height: 50px;
+    line-height: 52px;
+    color: var(--edu-btn-color);
+    background: var(--color-primary);
+    padding: 0 30px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: var(--font-secondary);
+    border: 0 none;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    /* transition: all .8s ease-in-out; */
+    transition: background-color 0.7s ease-out !important;
+}
+
+#eduk-btn1:after{
+    content: "";
+    height: 100%;
+    width: 0;
+    background: -webkit-linear-gradient(right, #2dac6f 0%, #1ab69d 100%);
+    background: linear-gradient(-90deg, #31b978 0%, #1ab69d 100%);
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: background-color 0.7s ease-out !important;
+}
+
+#eduk-btn1:hover{
+    transition: background-color 0.7s ease-out !important;
+    transition: all .7s linear;
+    background: linear-gradient(-90deg, #31b978 0%, #1ab69d 100%); 
+}
+
+.filter-icon{
+    font-size:22px !important;
+}
+
+.Right-icon{
+    font-size: 18px !important;
+    font-weight: bolder !important;
+}
+
+#product-thumbnail{
+    padding: 18px !important;
+}
+   
+#prof:hover{
+    color: black !important;
+    transition: .5s ease-in-out !important;
+}
+#add:hover{
+    color: black !important;
+    transition: .5s ease-in-out !important;
+}
+

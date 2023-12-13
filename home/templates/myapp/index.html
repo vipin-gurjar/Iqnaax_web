@@ -1,0 +1,483 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+<div id="edublink-preloader">
+  <div class="loading-spinner">
+    <div class="preloader-spin-1"></div>
+    <div class="preloader-spin-2"></div>
+  </div>
+</div> 
+
+<div class="hero-banner hero-style-3 bg-image">
+    <div class="swiper university-activator">
+      <div class="swiper-wrapper">
+        {% for banner in banners %}
+        <div class="swiper-slide">
+          <img data-transform-origin="center center" data-src="{{ banner.bannerImg.url }}" class="swiper-lazy"
+            alt="image"/>
+          <div class="thumbnail-bg-content">
+            <div class="container edublink-animated-shape">
+              <div class="row">
+                <div class="col-7">
+                  <div class="banner-content">
+                    <span class="subtitle" data-sal="slide-up" data-sal-duration="1000">Welcome to IQNAAX</span>
+                    <h1 class="title" data-sal-delay="100" data-sal="slide-up" data-sal-duration="1000">
+                      {{banner.title}}</h1>
+                    <p data-sal-delay="200" data-sal="slide-up" data-sal-duration="1000">
+                    <p>{{banner.desc}}</p>
+                    </p>
+                    <div class="banner-btn" data-sal-delay="400" data-sal="slide-up" data-sal-duration="1000">
+                      <a href="https://www.youtube.com/watch?v=mt36lX30c0g" class="edu-btn btn-secondary">Read More <i class="bi bi-arrow-right Right-icon"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+      <div class="hero-slider-bg-controls">
+        <div class="swiper-slide-controls slide-prev">
+          <i class="bi bi-arrow-left"></i>
+        </div>
+        <div class="swiper-slide-controls slide-next">
+          <i class="bi bi-arrow-right"></i>
+        </div>
+      </div>
+    </div>
+    <ul class="shape-group">
+      <li class="shape-1 scene" data-sal-delay="1000" data-sal="fade" data-sal-duration="1000">
+        <img data-depth="2" src="{% static 'images/shape-10.png' %}" alt="Shape"/>
+      </li>
+      <li class="shape-2 scene" data-sal-delay="1000" data-sal="fade" data-sal-duration="1000">
+        <img data-depth="-3" src="{% static 'images/shape-11.png' %}" alt="Shape"/>
+      </li>
+      <li class="shape-3">
+        <img src="{% static 'images/shape-25.png' %}" alt="Shape"/>
+      </li>
+    </ul>
+  </div>
+
+  <div class="edu-about-area about-style-3">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6" data-sal-delay="50" data-sal="slide-up" data-sal-duration="800">
+          <div class="about-content">
+            <div class="section-title section-left sal-animate" data-sal-delay="150" data-sal="slide-up"
+              data-sal-duration="800">
+           
+              <h2 class="title">{{ about_section.title }}</h2>
+              <span class="shape-line"><i class="icon-19"></i></span>
+              <p>{{ about_section.desc }}</p>
+            </div>
+            <div class="about-mission sal-animate" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+              <div class="row g-5 row--20">
+
+                {% for vision_mission in vision_missions %}
+                <div class="col-lg-6">
+                  <h5 class="title">{{ vision_mission.title }}</h5>
+                  <p>{{ vision_mission.desc }}</p>
+
+                </div>
+                {% endfor%}
+           
+              </div>
+            </div>
+            <a href="{% url 'about' %}" class="edu-btn btn-curved sal-animate" data-sal-delay="150" data-sal="slide-up"
+              data-sal-duration="800">Read More <i class="bi bi-arrow-right Right-icon"></i></i></a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-image-gallery">
+
+{% for image in images %}
+<img class="main-img-{{ forloop.counter }} w-50" data-sal-delay="100" data-sal="slide-{{ forloop.counter|yesno:'left,right' }}"
+     data-sal-duration="800" src="{{ image.home_about_img.url }}" alt="{{ image.alt_text }}"/>
+{% endfor %}
+
+            <ul class="shape-group">
+              <li class="shape-1 scene" data-sal-delay="500" data-sal="fade" data-sal-duration="200">
+                <img data-depth="5" src="{% static 'images/shape-13.png' %}" alt="Shape"/>
+              </li>
+              <li class="shape-2 scene" data-sal-delay="500" data-sal="fade" data-sal-duration="200">
+                <img data-depth="-5" src="{% static 'images/shape-39.png' %}" alt="Shape"/>
+              </li>
+              <li class="shape-3 scene" data-sal-delay="500" data-sal="fade" data-sal-duration="200">
+                <img data-depth="8" src="{% static 'images/shape-07.png' %}" alt="Shape"/>
+              </li>
+              <li class="shape-4" data-sal-delay="500" data-sal="fade" data-sal-duration="200">
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="shape-group">
+      <li class="shape-5">
+        <img class="rotateit" src="{% static 'images/shape-13.png' %}" alt="Shape"/>
+      </li>
+      <li class="shape-6">
+        <span></span>
+      </li>
+    </ul>
+  </div>
+<section class="edu-course-area course-area-3 section-gap-large bg-lighten04">
+    <div class="container">
+      <div class="row">
+        <div class="row row--45">
+          <div class="section-title section-center sal-animate" data-sal-delay="150" data-sal="slide-up"
+            data-sal-duration="800">
+
+            <h2 class="title">{{ gallery_section.title }}</span> </h2>
+            <p class="w-50 mx-auto">{{ gallery_section.desc }}</p>
+            <span class="shape-line"><i class="icon-19"></i></span>
+          </div>
+        </div>
+
+        <section class="gallery_sec">
+          <div class="container">
+
+            <div class="row">
+              {% for galleryimg in gallery_images %}
+              <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <a href="{{ galleryimg.galleryImg.url }}" data-fancybox="gallery">
+                  <img src="{{ galleryimg.galleryImg.url }}" title="abc"/>
+                </a>
+              </div>
+              {% endfor %}
+   
+            </div>
+          </div>
+        </section>
+        <a href="{% url 'gallery' %}" class="w-25 mx-auto text-center edu-btn btn-curved sal-animate" data-sal-delay="150"
+          data-sal="slide-up" data-sal-duration="800">View More <i class="bi bi-arrow-right Right-icon"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="edu-campus-area gap-lg-top-equal">
+    <div class="container edublink-animated-shape">
+      <div class="row g-5">
+        <div class="col-xl-7" data-sal-delay="50" data-sal="slide-right" data-sal-duration="800">
+          <div class="campus-image-gallery">
+            <div class="campus-thumbnail">
+              <div class="thumbnail">
+                <img src="{{ campusImgs.campusImg.url }}" alt="Campus"/>
+              </div>
+            </div>
+            <ul class="shape-group">
+              <li class="shape-1 scene">
+                <span data-depth=".8"></span>
+              </li>
+              <li class="shape-2 scene">
+                <img data-depth="1.5" src="{% static 'images/shape-21.png' %}" alt="Shape"/>
+              </li>
+              <li class="shape-3 scene">
+                <img data-depth="-1.5" src="{% static 'images/shape-13.png' %}" alt="Shape"/>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xl-5" data-sal-delay="50" data-sal="slide-left" data-sal-duration="800">
+          <div class="campus-content">
+            <div class="inner">
+              <div class="section-title section-left">
+               
+                <h2 class="title">How It Works </h2>
+                <span class="shape-line"><i class="icon-19"></i></span>
+              </div>
+
+               <div class="features-list">
+
+                 {% for feature in features %}
+                <div class="features-box {% if forloop.counter == 1 %}color-secondary-style{% elif forloop.counter == 2 %}color-primary-style{% else %}color-extra05-style{% endif %}">
+                    <div class="icon">
+                        <img src="{{ feature.icon.url }}" class="w-50" alt=""/>
+                    </div>
+                    <div class="content">
+                        <h5 class="title">{{ feature.title }}</h5>
+                        <p>{{ feature.desc }}</p>
+                    </div>
+                </div>
+                {% endfor %} 
+
+              </div>
+            </div>
+
+            <ul class="shape-group">
+              <li class="shape-4 scene">
+                <span data-depth=".8"></span>
+              </li>
+              <li class="shape-5 scene">
+                <span data-depth="2"></span>
+              </li>
+              <li class="shape-6 scene">
+                <img data-depth="-2" src="{% static 'images/shape-25_1.png' %}" alt="Shape"/>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="row g-5">
+           <div class="col-lg-6">
+                  <div class="about-image-gallery">
+                      <div class="row g-5 ms-5 mb-5" id="masonry-gallery" style="position: relative; height: 629.39px;">
+
+                        {% for img in about_section_images %}
+
+                          <div class="col-6 masonry-item" >
+                              <div class="thumbnail thumbnail sal-animate" data-sal-delay="50" data-sal="slide-down" data-sal-duration="1000">
+                                  <img src="{{ img.aboutImg.url }}" alt="About Images"/>
+                              </div>
+                          </div>
+
+                          {% endfor %}
+
+                      </div>
+                      
+                  </div>
+              </div>
+              <div class="col-lg-6 mt-5">
+                  <div class="about-content mt-5">
+                      <div class="section-title section-left sal-animate mt-5" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                          <h2 class="title">{{ about_content.title }}</h2>
+                          <span class="shape-line"><i class="icon-19"></i></span>
+                          <p>{{ about_content.desc }}</p>
+                          <p>{{ about_content.desc }}</p>
+                      </div>
+                      <a href="{% url 'shop' %}" class="edu-btn btn-curved sal-animate" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">Read More<i class="bi bi-arrow-right Right-icon"></i></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>  
+
+  <div class="edu-about-area about-style-3 bg-lighten04">
+    <ul class="shape-group">
+      <li class="shape-5">
+        <img class="rotateit" src="{% static 'images/shape-13.png' %}" alt="Shape"/>
+      </li>
+      <li class="shape-6">
+        <span></span>
+      </li>
+    </ul>
+  </div>
+
+  <section class="why-choose-area-3 edu-section-gap">
+    <div class="container">
+      <div class="row row--45">
+        <div class="section-title section-center sal-animate" data-sal-delay="150" data-sal="slide-up"
+          data-sal-duration="800">
+         
+          <h2 class="title">From the makers </span> </h2>
+          <p class="w-50 mx-auto">
+          <p>We have International lab setups accross the globe which provides knowledge exchange platform where
+            people can communicate and share knowledge.</p>
+          </p>
+          <span class="shape-line"><i class="icon-19"></i></span>
+        </div>
+      </div>
+
+      <div class="row g-5">
+
+        {% for why in why_choose %}
+        <div class="col-lg-4 sal-animate" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+          <div class="why-choose-box-2 features-box color-primary-style">
+
+          
+
+            <div class="icon">
+              <img src="{{ why.icon_img.url }}" class="w-50" alt=""/>
+            </div>
+            <div class="content">
+              <h4 class="title">{{ why.count }}
+                <br> {{ why.title }}
+              </h4>
+              <p>{{ why.desc }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+
+
+      </div>
+    </div>
+    <ul class="shape-group">
+      <li class="shape-1 scene"
+        style="transform: translate3d(0px, 0px, 0px) rotate(0.0001deg); transform-style: preserve-3d; backface-visibility: hidden; pointer-events: none;">
+        <span data-depth=".8"
+          style="transform: translate3d(0px, 0px, 0px); transform-style: preserve-3d; backface-visibility: hidden; position: relative; display: block; left: 0px; top: 0px;"></span>
+      </li>
+      <li class="shape-2 scene"
+        style="transform: translate3d(0px, 0px, 0px) rotate(0.0001deg); transform-style: preserve-3d; backface-visibility: hidden; pointer-events: none;">
+        <img data-depth="-2" src="{% static 'assets/images/about/shape-13.png' %}" alt="Shape"
+          style="transform: translate3d(0px, 0px, 0px); transform-style: preserve-3d; backface-visibility: hidden; position: relative; display: block; left: 0px; top: 0px;">
+      </li>
+      <li class="shape-3">
+        <img data-parallax="{&quot;x&quot;: 0, &quot;y&quot;: 100}" src="{% static 'assets/images/faq/shape-12.png' %}" alt="Shape"
+          style="transform:translate3d(0px, 85.887px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0px, 85.887px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); "/>
+      </li>
+    </ul>
+  </section>
+
+  <div class="testimonial-area-2 section-gap-large">
+    <div class="container edublink-animated-shape">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="section-title section-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+         
+            <h2 class="title">What Parents Say</h2>
+            <span class="shape-line"><i class="icon-19"></i></span>
+            <p>What clients say about our products &amp; services</p>
+
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-activation swiper">
+        <div class="swiper-wrapper">
+
+
+          {% for testimonial in testimonials %} 
+          <div class="swiper-slide">
+            <div class="testimonial-slide">
+              <div class="content">
+                <div class="logo w-25"><img src="{% static 'images/quotes.png' %}" alt="Logo"></div>
+                <p>
+                <p>{{ testimonial.desc }}</p>
+                </p>
+                <div class="rating rating-icon">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+              
+              </div>
+              <div class="author-info">
+                <div class="thumb">
+                  <img src="{{ testimonial.testimonialImg.url }}" alt="Testimonial">
+                </div>
+                <div class="info">
+                  <h5 class="title">{{ testimonial.title }}</h5>
+                  <span class="subtitle">{{ testimonial.subtitle }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+         {% endfor %} 
+
+         </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <ul class="shape-group">
+        <li class="shape-1 scene" data-sal-delay="200" data-sal="fade" data-sal-duration="1000">
+          <img data-depth="1.4" src="{% static 'images/shape-30.png' %}" alt="Shape"/>
+        </li>
+        <li class="shape-2 scene" data-sal-delay="200" data-sal="fade" data-sal-duration="1000">
+          <img data-depth="-1.4" src="{% static 'images/shape-25_1.png' %}" alt="Shape"/>
+        </li>
+      </ul>
+    </div>
+    <ul class="shape-group">
+      <li class="shape-3" data-sal-delay="200" data-sal="fade" data-sal-duration="1000">
+        <img class="d-block-shape-light" data-depth="2" src="{% static 'images/map-shape-3.png' %}" alt="Shape"/>
+        <img class="d-none-shape-dark" data-depth="2" src="{% static 'images/dark-map-2-shape-3.png' %}" alt="Shape"/>
+      </li>
+    </ul>
+  </div>
+  <div class="testimonial-area-2 section-gap-large">
+    <div class="container edublink-animated-shape">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="section-title section-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+            <h2 class="title">Blogs</h2>
+            <span class="shape-line"><i class="icon-19"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-activation swiper">
+        <div class="swiper-wrapper">
+          {% for blog in blogs %} 
+          <div class="swiper-slide">
+            <div class="testimonial-slide">
+              <div class="content">
+                <div class="logo"><img src="{{ blog.blogImg.url }}" alt="Testimonial"></div>
+                <p>{{ blog.desc }}</p>
+                <h5 class="title">
+                  <a href="{% url 'blog-detail' blog.id %}">
+                    {{ blog.title }}</a>
+                </h5>
+              </div>
+            </div>
+          </div>
+         {% endfor %} 
+
+
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <ul class="shape-group">
+        <li class="shape-1 scene" data-sal-delay="200" data-sal="fade" data-sal-duration="1000">
+          <img data-depth="1.4" src="{% static 'images/shape-30.png' %}" alt="Shape"/>
+        </li>
+        <li class="shape-2 scene" data-sal-delay="200" data-sal="fade" data-sal-duration="1000">
+          <img data-depth="-1.4" src="{% static 'images/shape-25_1.png' %}" alt="Shape"/>
+        </li>
+      </ul>
+    </div>
+    <ul class="shape-group">
+      <li class="shape-3" data-sal-delay="200" data-sal="fade" data-sal-duration="1000">
+        <img class="d-block-shape-light" data-depth="2" src="{% static 'images/map-shape-3.png' %}" alt="Shape"/>
+        <img class="d-none-shape-dark" data-depth="2" src="{% static 'images/dark-map-2-shape-3.png' %}" alt="Shape"/>
+      </li>
+    </ul>
+  </div>
+
+  <div class="university-cta-wrapper edu-cta-banner-area bg-image" style="display:none">
+    <div class="container">
+      <div class="section-title section-center sal-animate" data-sal-delay="150" data-sal="slide-up"
+        data-sal-duration="800">
+        <h2 class="title">Our Team</h2>
+        <span class="shape-line"><i class="icon-19"></i></span>
+        <p class="w-75 mx-auto">The Iqnaax team comprises of young and dynamic personnel working in edtech sector from
+          past 5 years and are passionate about robotics.<br />
+          The team works under leadership of Mr. Amit Malu and is supported by Mr. Aditya Sharma - Head Content
+          Development &amp;&nbsp; Mr. Ashutosh Pandey - Head Sales &amp; Marketing &amp; Mrs. Sapna - Head Digital
+          Marketing &amp; Operations.</p>
+      </div>
+      <div class="edu-cta-banner">
+        <div class="">
+
+          <div class="row g-3">
+          </div>
+        </div>
+        <ul class="shape-group">
+          <li class="shape-01 scene">
+            <img data-depth="2.5" src="{% static 'images/shape-10_1.png' %}" alt="Shape"/>
+          </li>
+          <li class="shape-02 scene">
+            <img data-depth="-2.5" src="{% static 'images/shape-09.png' %}" alt="Shape"/>
+          </li>
+          <li class="shape-03 scene">
+            <img data-depth="-2" src="{% static 'images/shape-08.png' %}" alt="Shape"/>
+          </li>
+          <li class="shape-04 scene">
+            <img data-depth="2" src="{% static 'images/shape-13.png' %}" alt="Shape"/>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<div class="edu-instagram-area instagram-area-1">
+</div>
+
+{% endblock %}

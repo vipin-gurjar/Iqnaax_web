@@ -1,0 +1,60 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+
+<div class="edu-breadcrumb-area about-us-images9">
+   <div class="container">
+     <div class="breadcrumb-inner">
+       <div class="page-title">
+         <h1 class="title">Login</h1>
+
+       </div>
+       <ul class="edu-breadcrumb">
+         <li class="breadcrumb-item"><a href="/">Home</a></li>
+         <li class="separator"><i class="icon-angle-right"></i></li>
+         <li class="breadcrumb-item"><a href="#">Pages</a></li>
+         <li class="separator"><i class="icon-angle-right"></i></li>
+         <li class="breadcrumb-item active" aria-current="page"> Login</li>
+       </ul>
+     </div>
+   </div>
+ </div>
+
+<div class="container">
+ <div class="row my-2">
+ 
+    <ul class="shape-group" >
+
+      <li class="shape-2 scene"><img data-depth="-2" src="http://iqnaax.com/images/shape-13.png" alt="Shape"></li>
+      <li class="shape-3 scene"><img data-depth="2" src="http://iqnaax.com/images/shape-02.png" alt="Shape"></li>
+   </ul>
+   
+<div class="col-sm-6 offset-sm-3 my-4">
+    
+  {% if form.non_field_errors %}
+  {% for error in form.non_field_errors %}
+  <p class="alert alert-danger my-3">{{error}}</p>
+  {% endfor %}
+ {% endif %}
+
+   <form action="" method="post" novalidate class="shadow-sm p-5">
+    {% csrf_token %} 
+    {% for fm in form %}
+    <div class="form-group mb-2">
+       {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+    </div>
+    {% endfor %}
+  
+    <small><a href="{% url 'password_reset' %}" style="color: #0043ff; font-size:12px;">Forgot Password ?</a></small>
+    <p>Please enter your Email address. You will receive a link to create a new password via email. </p> <br>
+    <center><button type="submit" class="edu-btn" >Sign in<i class="bi bi-arrow-right Right-icon"></i></button></center>
+    <br>
+    <div class="text-center text-primary fw-bold"><small>New to IQNAAX ? <a href="{% url 'registration' %}"
+       class="text-danger">Create an Account</a> </small></div>
+    
+   </form>
+  </div>
+ </div>
+</div>
+{% endblock %}

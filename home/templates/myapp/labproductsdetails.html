@@ -1,0 +1,361 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+{% block title %} Lab Product Details{% endblock title %}
+{% block content %}
+<div class="edu-breadcrumb-area about-us-images3">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <div class="page-title">
+        <h1 class="title">Product</h1>
+
+      </div>
+      <ul class="edu-breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="separator"><i class="icon-angle-right"></i></li>
+        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+        <li class="separator"><i class="icon-angle-right"></i></li>
+       
+        <li class="breadcrumb-item active" aria-current="page">{{ prod.title }} </li>
+       
+      </ul>
+    </div>
+  </div>
+</div>
+<section>
+    <div class="product-details-area  mt--70 mb--50 ">
+      <div class="container">
+        <div class="justify-content-center row">
+          <div class="col-lg-11">
+            <div class="row g-5 row--25">
+              <div class="col-lg-6">
+                <div class="thumbnail">
+
+                  <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+                    <div class="swiper-wrapper">
+                     <div class="swiper-slide">
+                        <img src="{{ prod.lab_image.url }}" class="w-75" />
+                      </div>
+                        <div class="swiper-slide">
+                        <img src="{{ prod.lab_image.url }}" class="w-75" />
+                      </div>
+                        <div class="swiper-slide">
+                        <img src="" class="w-75" />
+                      </div>
+                        <div class="swiper-slide">
+                        <img src="" class="w-75" />
+                      </div>
+                        <div class="swiper-slide">
+                        <img src="" class="w-75" />
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="" class="w-75" />
+                      </div>
+                                </div>
+                    <div class="swiper-button-next text-black"></div>
+                    <div class="swiper-button-prev text-black"></div>
+                  </div>
+                  <div thumbsSlider="" class="swiper mySwiper mt-0">
+                    <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                        <img src="" />
+                      </div>
+                        <div class="swiper-slide">
+                        <img src=""  />
+                      </div>
+                            <div class="swiper-slide">
+                        <img src=""  />
+                      </div>
+                      <div class="swiper-slide">
+                        <img src=""  />
+                      </div>
+                    <div class="swiper-slide">
+                        <img src=""  />
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="" class="w-75" />
+                      </div>
+                    
+                    </div>
+                  </div>
+                   <img src="" alt="" class="mt-0">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="content">
+                 
+                  <h3 class="title"> {{ prod.title }} </h3>
+                  <p><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt"><span style="background-color:white"><span style="font-family:&quot;Segoe UI&quot;,sans-serif"><span style="color:#58595b">Kebbi is an Educational Robot that integrates artificial intelligence, software, and hardware technology to provide a variety of facial expressions, body movements, and communicative interactions. &nbsp;Kebbi provides a unique set of interactive capabilities that work wonderfully in the home or school environment, providing users with a heartwarming and educational experience.</span></span></span></span></span></span></span><br />
+                    &nbsp;                    </p>
+
+                        <div class="price "> <del>₹  {{ prod.selling_price }}</del><span class="color-secondary">₹ {{ prod.discounted_price }}</span> </div>
+
+                  <ul class="product-feature">
+
+          
+                    <li><span>Ages:</span> 3+ </li>
+
+                    <li><span>Availability: </span> In Stock</li>
+                  
+                  </ul>
+                  <span style="color:black">Quantity:</span>
+                  <br><br>
+                  <div class="product" >
+                  
+                    <button class="decrement" style="border:none">-</button>
+                    <span class="quantity" >1</span>
+                    <button class="increment" style="border:none">+</button>
+                 </div>
+
+
+                 {% if request.user.is_authenticated %} 
+                 {% if item_already_in_cart %} 
+                 <a href="{% url 'cart' %}" class="edu-btn mt-5">Go to Cart<i class="bi bi-arrow-right Right-icon"></i></a>
+                 
+                 {% else %}
+              
+                  <form action="{% url 'add-to-cart' %}" class="d-inline">
+                      <input type="hidden" name="prod_id" value="{{ prod.id }}" id="prod_id">
+                      <button type="submit" class="edu-btn mt-5">Add to Cart<i class="bi bi-arrow-right Right-icon"></i></button>
+                  </form>
+                  {% endif %}
+                  {% endif %}
+              
+                  {% if not request.user.is_authenticated %} 
+                  
+                  <form action="{% url 'add-to-cart' %}" class="d-inline">
+                      <input type="hidden" name="prod_id" value="{{ prod.id }}" id="prod_id">
+                      <button type="submit" class="edu-btn mt-5">Add to Cart<i class="bi bi-arrow-right Right-icon"></i></button>
+                  </form>
+                  {% endif %}
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="edu-product-description gap-bottom-equal123410 pt-0 pb-0">
+      <div class="container">
+        <div class="row justify-content-center row">
+          <div class="col-lg-11">
+            <ul class="product-description-nav nav nav-tabs text-left" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active show" id="desc-tab" data-bs-toggle="tab" data-bs-target="#descs" type="button" role="tab" aria-controls="descs" aria-selected="true">Product Details</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button" role="tab" aria-controls="desc" aria-selected="true">Additional Information</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false">Review (0)</button>
+              </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+              <div class="product-description-content tab-pane fade show active" id="descs" role="tabpanel" aria-labelledby="descs-tab">
+                <h5 class="">Kebbi Air AI Humanoid Robot</h5>
+                <p class="calss-new-font"><ul>
+<li><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt"><span style="font-family:&quot;Segoe UI&quot;,sans-serif"><span style="color:#212529">AI Voice System &amp; Object Recognition</span></span></span></span></span></span></li>
+<li><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt"><span style="font-family:&quot;Segoe UI&quot;,sans-serif"><span style="color:#212529">Customizable Dialogues &amp; Accessories</span></span></span></span></span></span></li>
+<li><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt"><span style="font-family:&quot;Segoe UI&quot;,sans-serif"><span style="color:#212529">Voice Activation &amp; Sound Orientation</span></span></span></span></span></span></li>
+<li><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt"><span style="font-family:&quot;Segoe UI&quot;,sans-serif"><span style="color:#212529">Vibrant Body Language with Emotion</span></span></span></span></span></span></li>
+<li><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt"><span style="font-family:&quot;Segoe UI&quot;,sans-serif"><span style="color:#212529">Movement, Touch And Facial Recognition</span></span></span></span></span></span></li>
+<li><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt"><span style="font-family:&quot;Segoe UI&quot;,sans-serif"><span style="color:#212529">7 Inch Multi-touch Display Panel</span></span></span></span></span></span></li>
+</ul>
+</p>
+
+<div class="row">
+                  <div class="col-lg-10"><img src="{{ prod.lab_image.url }}" alt=""></div>
+                </div>
+                <div class=" row">
+                  <div class="col-lg-11 mt--50">
+                    <h6>Specifications:</h6>
+                    <table class=" table table-hover text-center calss-new-font">
+
+                      <tbody>
+                        <p></p>
+                 </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="product-description-content tab-pane fade " id="desc" role="tabpanel" aria-labelledby="desc-tab">
+
+                <div class="justify-content-center row">
+                  <div class="col-lg-12">
+
+                    <table class=" table table-hover text-center calss-new-font">
+
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="product-description-content tab-pane fade calss-new-font" id="review" role="tabpanel" aria-labelledby="review-tab">
+                <!-- <p class="text-center">Based on 1 reviews</p> -->
+                <div class="form-group text-center">
+                  <button type="submit" class="edu-btn submit-btn "> Write a review </button>
+                </div><br>
+
+                                  <div>
+                                          <div class="row">
+                    <div class="col-lg-6">
+                      <div class="comment-form-area">
+                        <h6 class="heading-title">WRITE A REVIEW</h6>
+                        <form class="comment-form" method="post" autocomplete="off" id="contactform">
+                           <input type="hidden" name="userid" value="">
+                           <input type="hidden" name="productid" value="20">
+                          <div class="form-group  col-lg-12">
+                            <label>Your Name</label>
+                            <input type="text" name="name" placeholder=" Enter a Name" id="name" value=" " readonly>
+                          </div>
+                          <div class="form-group col-lg-12">
+                            <label>Your Email</label>
+                            <input type="email" name="email" placeholder="Domian@gmail.com" id="email" value="" readonly>
+                          </div>
+
+                          <div class="form-group col-lg-12">
+                            <label>Rating</label>
+                            <select class="" name="rating" id="rating">  
+                                <option value="">Select Rating</option>
+                                <option value="1">01</option>
+                                <option value="2">02 </option>
+                                <option value="3">03 </option>
+                                <option value="4">04 </option>
+                                <option value="5">05 </option>
+                            </select>
+                          </div>
+                          
+                          <div class="row g-5">
+                            <div class="form-group col-lg-12">
+                              <label>Review</label>
+                              <textarea name="comment" id="comment" placeholder="Write your comments here" cols="60" rows="5"></textarea>
+                            </div>
+
+                             
+                            <div class="form-group col-12"> <a class="edu-btn submit-btn"
+                            onclick="alert('Please Login First')">Submit Your Review<i class="bi bi-arrow-right Right-icon"></i></a> </div>
+                             
+                          </div> 
+                         </form> 
+                       </div> 
+                     </div> 
+                   </div>
+                  </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="course-area-1 edu-course-area mb--90 mb-50 ">
+        <div class="container">
+        <div class="justify-content-center row">
+        <div class="col-lg-12">
+         <div class=" section-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+            <p></p>
+            <h2 class="title  marhig">Recently Viewed Products
+            </h2>
+
+          </div>
+          <div class="row g-5">
+
+
+            {% for p in products %}
+            <div class="col-md-6 col-xl-3" data-sal-duration="800">
+
+              <div class="edu-course course-style-1 hover-button-bg-white">
+                    <div class="inner" style="width:100;">
+                      <div class="thumbnail">
+                        <div class="edu-product">
+                          <div class="inner">
+                            <div class="thumbnail">
+                              <a href="{% url 'product-detail' prod.id %}">
+
+                               <img src="{{ prod.lab_image.url }}" alt="Shop Images">
+                            </a>
+                              <div class="product-hover-info">
+                                <ul>                                
+                                  <li class="text-center"><a href="{% url 'product-detail' prod.id %}"><i class="bi bi-suit-heart"></i></a></li>
+
+                                </ul>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="content" id="product-thumbnail">
+
+                        <h6 class="title">
+                          <a href="{% url 'product-detail' prod.id %}" class="text--black">{{p.title}}</a>
+                        </h6>
+                         <div class="course-price"> <span class="del-new">₹</span><span class="a-price ">{{ prod.discounted_price }}</span>  <span>MRP : <del>{{ prod.selling_price }}</del></span></div>
+                        <ul class="course-meta">
+                          <li>Ages: <span> 3+</span></li>
+
+                        </ul>
+                         <a href="{% url 'lab-product-detail' p.id %}" class="edu-btn btn-secondary btn-small">View Detail<i class="bi bi-arrow-right Right-icon"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+        </div>
+        </div>
+         </div> 
+      </div>
+    </section> 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".increment").on("click", function() {
+                var $product = $(this).closest(".product");
+                var $quantity = $product.find(".quantity");
+                var $price = parseFloat($product.find("p").text().replace("Price: $", ""));
+                var currentQuantity = parseInt($quantity.text());
+
+                currentQuantity++;
+                $quantity.text(currentQuantity);
+
+                // Add the item to the cart
+                $("#cart-items").append("<li>" + $product.find("h2").text() + " x" + currentQuantity + "</li>");
+
+                // Calculate and update the cart total
+                var cartTotal = parseFloat($("#cart-total").text());
+                cartTotal += $price;
+                $("#cart-total").text(cartTotal.toFixed(2));
+            });
+
+            $(".decrement").on("click", function() {
+                var $product = $(this).closest(".product");
+                var $quantity = $product.find(".quantity");
+                var $price = parseFloat($product.find("p").text().replace("Price: $", ""));
+                var currentQuantity = parseInt($quantity.text());
+
+                if (currentQuantity > 0) {
+                    currentQuantity--;
+                    $quantity.text(currentQuantity);
+
+                    // Remove the item from the cart
+                    $("#cart-items li:contains(" + $product.find("h2").text() + ")").remove();
+
+                    // Calculate and update the cart total
+                    var cartTotal = parseFloat($("#cart-total").text());
+                    cartTotal -= $price;
+                    $("#cart-total").text(cartTotal.toFixed(2));
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

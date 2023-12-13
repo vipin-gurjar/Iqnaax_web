@@ -1,0 +1,56 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+{% block title %}Address{% endblock title %}
+{% block content %}
+
+<div class="edu-breadcrumb-area about-us-images1">
+    <div class="container">
+        <div class="breadcrumb-inner" >
+            <div class="page-title">
+                <h1 class="title">Dashboard</h1>
+               
+            </div>
+            <ul class="edu-breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="separator"><i class="icon-angle-right"></i></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="separator"><i class="icon-angle-right"></i></li>
+                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            </ul>
+        </div>
+    </div>
+   
+ </div>
+ 
+<div class="container my-5">
+ <div class="row">
+ <h3 class="my-5">Welcome <span class="text-capitalize">{{request.user}}</span></h3>
+ <hr> 
+  <div class="col-sm-2 border-end">
+   <ul class="list-unstyled">
+    <li class="d-grid"><a href="{% url 'address' %}"  id="add" class="edu-btn">Dashboard</a></li>
+    <li class="d-grid"><a href="{% url 'profile' %}"  id="prof" class="edu-btn">Profile</a></li>
+    
+   </ul>
+  </div>
+  <div class="col-sm-9 offset-sm-1 ">
+   <div class="row">
+    {% for ad in add %}
+    <div class="col-sm-6">
+     <div class="card">
+      <div class="card-body">
+       <p>Name : {{ad.name}}</p>
+       <p>Locality : {{ad.locality}}</p>
+       <p>City : {{ad.city}}</p>
+       <p>State : {{ad.state}}</p>
+       <p>Zipcode : {{ad.zipcode}}</p>
+      </div>
+     </div>
+    </div>
+    {% endfor %}
+   </div>
+  </div>
+ </div>
+</div>
+
+{% endblock %}
